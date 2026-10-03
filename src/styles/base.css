@@ -1,0 +1,89 @@
+/*
+ * Element defaults for the whole app. Components style themselves in scoped styles, so only
+ * what every screen shares belongs here.
+ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Scrollbars and form controls in the system's appearance, light or dark. */
+  color-scheme: light dark;
+  /* Clear of a phone's system bars, which the page is drawn beneath. */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html {
+  height: 100%;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Body text: 15 pixels of IBM Plex Sans, large enough to read formulas in. */
+body {
+  min-height: 100%;
+  background-color: var(--color-content);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#app {
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* The focus ring, in the action color, just outside the element. */
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-action) 60%, transparent);
+  outline-offset: 1px;
+}
+
+/* Read by screen readers but not shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* A caption: small uppercase mono in the faintest text, for section headings and figure labels. */
+.caption {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,83 @@
+/*
+ * The design tokens of Mouseless's own look (docs/specs/ui-overhaul.md): a paper light and a warm
+ * dark, with one accent per meaning. Components use the roles, never raw colors, so both
+ * appearances follow from here. Every text and accent color reaches 4.5:1 on `content` and `box`,
+ * tertiary text 3:1.
+ */
+:root {
+  /* Surfaces, from the frame inwards; borders replace shadows. */
+  --color-window: #f4ede4;
+  --color-content: #faf5ee;
+  --color-box: #fffbf5;
+  --color-raised: #fffdf9;
+  --color-border: #e3d9cc;
+
+  /* Text, from most to least prominent. Tertiary is for labels and hints only. */
+  --color-text: #3f3547;
+  --color-text-secondary: #6f6175;
+  --color-text-tertiary: #8f8191;
+
+  /* The accents, each with one meaning. */
+  --color-action: #a94f29;
+  --color-on-action: #fff;
+  --color-learned: #56702f;
+  --color-mistake: #b03f54;
+  --color-due: #8c600a;
+
+  /* Fills for rows and controls under the pointer, from the text color. */
+  --color-fill: color-mix(in srgb, var(--color-text) 6%, transparent);
+  --color-fill-hover: color-mix(in srgb, var(--color-text) 10%, transparent);
+
+  /* The raised bottom edge of a key cap. */
+  --color-key-edge: #d6cabb;
+
+  /* Small corners and no capsules: boxes, controls and key caps. */
+  --radius-box: 5px;
+  --radius-control: 4px;
+  --radius-key: 6px;
+
+  --sidebar-width: 232px;
+
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Robert Penner's curve, approximated as a cubic Bézier. */
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* Dark by the system's setting, unless the viewer chose light; and dark when the viewer chose it. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-window: #221f24;
+    --color-content: #2a272c;
+    --color-box: #322e34;
+    --color-raised: #3c3740;
+    --color-border: #433d46;
+    --color-text: #efe6e1;
+    --color-text-secondary: #b3a6a8;
+    --color-text-tertiary: #857a7e;
+    --color-action: #f6b593;
+    --color-on-action: #221f24;
+    --color-learned: #b4bd8f;
+    --color-mistake: #ec7a85;
+    --color-due: #f2d16b;
+    --color-key-edge: #1a181c;
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-window: #221f24;
+  --color-content: #2a272c;
+  --color-box: #322e34;
+  --color-raised: #3c3740;
+  --color-border: #433d46;
+  --color-text: #efe6e1;
+  --color-text-secondary: #b3a6a8;
+  --color-text-tertiary: #857a7e;
+  --color-action: #f6b593;
+  --color-on-action: #221f24;
+  --color-learned: #b4bd8f;
+  --color-mistake: #ec7a85;
+  --color-due: #f2d16b;
+  --color-key-edge: #1a181c;
+}
