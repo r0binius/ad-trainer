@@ -98,6 +98,13 @@ export function syncKey(): string {
   }
 }
 
+/** A new random sync key: anyone who knows it can read and replace the progress stored under it. */
+export function newSyncKey(): string {
+  const bytes = window.crypto.getRandomValues(new Uint8Array(32));
+
+  return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
 /** Remembers the sync key on this device. Returns whether it was stored. */
 export function setSyncKey(key: string): boolean {
   try {
