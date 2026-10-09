@@ -138,7 +138,7 @@ function pointChoices(task: ExamTask): readonly number[] {
         </label>
       </fieldset>
 
-      <div>
+      <div class="action-bar">
         <BaseButton variant="accent" size="large" :disabled="chosen.length === 0" @click="start">
           Prüfung starten
         </BaseButton>
@@ -175,7 +175,7 @@ function pointChoices(task: ExamTask): readonly number[] {
             <span class="mono">{{ row.points }} / {{ row.max }}</span>
           </li>
         </ul>
-        <div>
+        <div class="action-bar">
           <BaseButton size="large" @click="phase = 'setup'">Neue Prüfung</BaseButton>
         </div>
       </section>
